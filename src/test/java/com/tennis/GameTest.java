@@ -36,6 +36,20 @@ public class GameTest {
                 .getMessage());
     }
 
+    @Test
+    void shouldDisplayGameScore() {
+        Logger gameLogger = (Logger) LoggerFactory.getLogger(Game.class);
+        ListAppender<ILoggingEvent> listAppender = new ListAppender<>();
+        listAppender.start();
+
+        gameLogger.addAppender(listAppender);
+        Game game = new Game(mockInputHandler);
+        game.start();
+        List<ILoggingEvent> logsList = listAppender.list;
+        assertEquals("Current Score is : FIFTEEN - ZERO", logsList.get(1)
+                .getMessage());
+    }
+
     private void setupInput() {
         mockInputHandler = mock(InputHandler.class);
         when(mockInputHandler.getPointWinner())

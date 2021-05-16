@@ -42,14 +42,19 @@ public class Game {
     }
 
     private void play() {
-        logger.info("Who won the next point player A or B?");
-        String pointWinner = inputHandler.getPointWinner();
-        boolean isPointWinnerA = isPointWinnerA(pointWinner);
-        setGameState(scoreRuleEngine.getNextGameState(isPointWinnerA, gameState));
+        while (gameState.isInProgress()) {
+            String pointWinner = inputHandler.getPointWinner();
+            setGameState(scoreRuleEngine.getNextGameState(isPointWinnerA(pointWinner), gameState));
+            displayScore();
+        }
     }
 
     private boolean isPointWinnerA(String pointWinner) {
         return pointWinner.equals("A");
+    }
+
+    void displayScore() {
+        logger.info("Current Score is : " + gameState.getPlayerAScore() + " - " + gameState.getPlayerBScore());
     }
 
 }

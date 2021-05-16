@@ -36,15 +36,15 @@ public class GameState {
     }
 
     public boolean isDeuce() {
-        return this.playerAScore == Score.FORTY && this.playerBScore == Score.FORTY;
+        return playerAScore == Score.FORTY && playerBScore == Score.FORTY;
     }
 
     public boolean isInProgress() {
-        return this.getPlayerAScore() != WIN && this.getPlayerBScore() != WIN;
+        return getPlayerAScore() != WIN && getPlayerBScore() != WIN;
     }
 
     public boolean isPlayerOnAdvantage() {
-        return this.playerAScore == Score.ADVANTAGE || this.playerBScore == Score.ADVANTAGE;
+        return playerAScore == Score.ADVANTAGE || playerBScore == Score.ADVANTAGE;
     }
 
     @Override
@@ -68,4 +68,6 @@ public class GameState {
                 ", playerBScore=" + playerBScore +
                 '}';
     }
+
+
 }
