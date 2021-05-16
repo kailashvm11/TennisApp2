@@ -43,6 +43,10 @@ public class GameState {
         return this.getPlayerAScore() != WIN && this.getPlayerBScore() != WIN;
     }
 
+    public boolean isPlayerOnAdvantage() {
+        return this.playerAScore == Score.ADVANTAGE || this.playerBScore == Score.ADVANTAGE;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,5 +59,13 @@ public class GameState {
     @Override
     public int hashCode() {
         return Objects.hash(getPlayerAScore(), getPlayerBScore());
+    }
+
+    @Override
+    public String toString() {
+        return "GameState{" +
+                "playerAScore=" + playerAScore +
+                ", playerBScore=" + playerBScore +
+                '}';
     }
 }
