@@ -30,7 +30,7 @@ public class GameTest {
 
         gameLogger.addAppender(listAppender);
         Game game = new Game(mockInputHandler);
-        game.startGame();
+        game.start();
         List<ILoggingEvent> logsList = listAppender.list;
         assertEquals("Starting Tennis Game between A and B", logsList.get(0)
                 .getMessage());

@@ -13,7 +13,7 @@ public class Game {
         this.inputHandler = inputHandler;
     }
 
-    public void startGame() {
+    public void start() {
         logger.info( "Starting Tennis Game between A and B");
         play();
     }
