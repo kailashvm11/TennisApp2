@@ -1,24 +1,26 @@
 package com.tennis;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import java.util.Scanner;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InputHandlerTest {
 
-    Scanner scanner;
-
-    @BeforeEach
+    @AfterEach
     public void restoreSystemInput() {
-        scanner = new Scanner("A\n");
+        System.setIn(System.in);
     }
 
     @Test
     public void shouldTakeUserInput() {
-        InputHandler inputOutput= new InputHandler(scanner);
-        assertEquals("A", inputOutput.getPointWinner());
+        String input = "B";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        InputHandler inputOutput= new InputHandler();
+        assertEquals("B", inputOutput.getPointWinner());
     }
 
 }

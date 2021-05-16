@@ -9,10 +9,6 @@ public class InputHandler {
         scanner = new Scanner(System.in);
     }
 
-    public InputHandler(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
     public String getPointWinner() {
         return scanner.nextLine();
     }
