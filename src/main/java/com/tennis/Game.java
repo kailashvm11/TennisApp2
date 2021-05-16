@@ -5,12 +5,15 @@ import org.slf4j.LoggerFactory;
 
 public class Game {
 
-    InputHandler inputHandler;
+    private InputHandler inputHandler;
+    private GameState gameState;
+
     private static final Logger logger = LoggerFactory.getLogger(Game.class);
 
 
     public Game(InputHandler inputHandler) {
         this.inputHandler = inputHandler;
+        this.gameState = new GameState();
     }
 
     public void start() {
